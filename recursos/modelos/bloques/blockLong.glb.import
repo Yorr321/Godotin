@@ -11,8 +11,8 @@ dest_files=[ "res://.import/blockLong.glb-c835184fa90aa998f1c1441772844418.scn" 
 
 [params]
 
-nodes/root_type="Spatial"
-nodes/root_name="Scene Root"
+nodes/root_type="StaticBody"
+nodes/root_name="BloqueLargo"
 nodes/root_scale=1.0
 nodes/custom_script=""
 nodes/storage=0

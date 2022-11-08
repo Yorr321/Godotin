@@ -1650,6 +1650,7 @@ nodes/walk/position = Vector2( -40, -240 )
 node_connections = [ "walk", 0, "Animation", "walk", 1, "Animation 2", "gun", 0, "state", "gun", 1, "Animation 5", "air_dir", 0, "Animation 3", "air_dir", 1, "Animation 4", "scale", 0, "walk", "state", 0, "scale", "state", 1, "air_dir", "output", 0, "gun" ]
 
 [node name="Player" type="KinematicBody"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
 __meta__ = {
 "__editor_plugin_screen__": "3D"
 }
