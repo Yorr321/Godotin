@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody",
+"class": "Godotin",
+"language": "GDScript",
+"path": "res://juego/player/Godotin.gd"
+} ]
+_global_script_class_icons={
+"Godotin": ""
+}
+
 [application]
 
 config/name="Godotin"
@@ -22,6 +32,14 @@ window/size/resizable=false
 window/size/always_on_top=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[input]
+
+saltar={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [layer_names]
 
