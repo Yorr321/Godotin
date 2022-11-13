@@ -9,24 +9,37 @@ export var gravedad: float = 9.8
 export var impulso: float = 50.0
 export var fuerza_salto: float = 18.0
 
+
+## Atributos
 var movimiento: Vector3 = Vector3.ZERO
+var vector_snap: Vector3 = Vector3.DOWN
 var salto_interrumpido = false
 var saltando = false
 
+
+## Atributos Onready
 onready var brazo_camara: SpringArm = $BrazoCamara
+onready var armadura: Spatial = $Armadura
 
 
 ## Metodos
+func _process(delta: float) -> void:
+	brazo_camara.translation = translation
+
 func _physics_process(delta: float) -> void:
 	movimiento_horizontal()
 	movimiento_vertical()
-	movimiento = move_and_slide(movimiento, direccion_arriba)
+	movimiento = move_and_slide_with_snap(movimiento, vector_snap, direccion_arriba, true)
+	
+	var direccion_vista_player = Vector2(movimiento.z, movimiento.x)
+	if direccion_vista_player.length() > 0:
+		armadura.rotation.y = direccion_vista_player.angle()
 
 
 ## Metodos Custom
 func movimiento_vertical() -> void:
 	if not is_on_floor():
-		print ("salto")
+		#print ("salto")
 		movimiento.y -= gravedad
 		movimiento.y = clamp(movimiento.y, -velocidad_max.y, impulso)
 		if Input.is_action_just_released("saltar"):
@@ -34,11 +47,15 @@ func movimiento_vertical() -> void:
 	else:
 		saltando = false
 		
+	var tocando_suelo: bool = is_on_floor() and vector_snap == Vector3.ZERO
 	var inicio_salto: bool = is_on_floor() and Input.is_action_just_pressed("saltar")
 		 
 	if inicio_salto:
+		vector_snap = Vector3.ZERO
 		saltando = true
 		salto_interrumpido = false
+	elif tocando_suelo:
+		vector_snap = Vector3.DOWN
 		
 	if movimiento.y >= velocidad_max.y:
 		salto_interrumpido = true
@@ -60,5 +77,4 @@ func tomar_direccion() -> Vector3:
 	
 	return direccion
 
-func _process(delta: float) -> void:
-	brazo_camara.translation = translation
+
