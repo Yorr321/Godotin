@@ -1247,14 +1247,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.0990001, -25 )
 [node name="ColumnaBloques102" parent="Bordes/Oeste" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.0990001, -25 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3, 0, 0 )
-collision_mask = 6
-gravedad = 0.1
+[node name="Godotin" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 3.8 )
 
 [node name="Plataformas" type="Spatial" parent="."]
 
 [node name="BloqueLargo" parent="Plataformas" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0, 4 )
 
 [node name="MedioBloque" parent="Plataformas" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50289, 0, -3.51405 )

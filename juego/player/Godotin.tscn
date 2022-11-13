@@ -1650,7 +1650,7 @@ nodes/state/node = SubResource( 21 )
 nodes/state/position = Vector2( 440, 0 )
 nodes/walk/node = SubResource( 22 )
 nodes/walk/position = Vector2( -40, -240 )
-node_connections = [ "scale", 0, "walk", "state", 0, "scale", "state", 1, "air_dir", "output", 0, "gun", "walk", 0, "Animation", "walk", 1, "Animation 2", "gun", 0, "state", "gun", 1, "Animation 5", "air_dir", 0, "Animation 3", "air_dir", 1, "Animation 4" ]
+node_connections = [ "walk", 0, "Animation", "walk", 1, "Animation 2", "gun", 0, "state", "gun", 1, "Animation 5", "air_dir", 0, "Animation 3", "air_dir", 1, "Animation 4", "scale", 0, "walk", "state", 0, "scale", "state", 1, "air_dir", "output", 0, "gun" ]
 
 [node name="Godotin" type="KinematicBody"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
@@ -1659,9 +1659,9 @@ __meta__ = {
 "__editor_plugin_screen__": "3D"
 }
 velocidad_max = Vector2( 10, 14 )
-gravedad = 1.0
-impulso = 30.0
-fuerza_salto = 10.0
+gravedad = 1.2
+impulso = 20.0
+fuerza_salto = 5.0
 
 [node name="Colisionador" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
