@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://juego/player/BrazoCamara.gd" type="Script" id=1]
 [ext_resource path="res://juego/player/Godotin.gd" type="Script" id=2]
@@ -1650,7 +1650,40 @@ nodes/state/node = SubResource( 21 )
 nodes/state/position = Vector2( 440, 0 )
 nodes/walk/node = SubResource( 22 )
 nodes/walk/position = Vector2( -40, -240 )
-node_connections = [ "air_dir", 0, "Animation 3", "air_dir", 1, "Animation 4", "gun", 0, "state", "gun", 1, "Animation 5", "walk", 0, "Animation", "walk", 1, "Animation 2", "scale", 0, "walk", "state", 0, "scale", "state", 1, "air_dir", "output", 0, "gun" ]
+node_connections = [ "scale", 0, "walk", "state", 0, "scale", "state", 1, "air_dir", "output", 0, "gun", "air_dir", 0, "Animation 3", "air_dir", 1, "Animation 4", "gun", 0, "state", "gun", 1, "Animation 5", "walk", 0, "Animation", "walk", 1, "Animation 2" ]
+
+[sub_resource type="AnimationNodeAnimation" id=27]
+animation = "run-cycle"
+
+[sub_resource type="AnimationNodeAnimation" id=28]
+animation = "shooting"
+
+[sub_resource type="AnimationNodeAnimation" id=29]
+animation = "walk-cycle"
+
+[sub_resource type="AnimationNodeAnimation" id=25]
+animation = "idle"
+
+[sub_resource type="AnimationNodeTimeScale" id=30]
+
+[sub_resource type="AnimationNodeBlend3" id=31]
+
+[sub_resource type="AnimationNodeBlendTree" id=26]
+graph_offset = Vector2( -303.864, -40.5098 )
+nodes/Animation/node = SubResource( 25 )
+nodes/Animation/position = Vector2( 260, 120 )
+"nodes/Animation 2/node" = SubResource( 27 )
+"nodes/Animation 2/position" = Vector2( 40, 240 )
+"nodes/Animation 3/node" = SubResource( 28 )
+"nodes/Animation 3/position" = Vector2( -260, 260 )
+"nodes/Animation 4/node" = SubResource( 29 )
+"nodes/Animation 4/position" = Vector2( 240, 0 )
+nodes/VelCorrer/node = SubResource( 30 )
+nodes/VelCorrer/position = Vector2( 260, 240 )
+nodes/idle_caminar_correr/node = SubResource( 31 )
+nodes/idle_caminar_correr/position = Vector2( 540, 100 )
+nodes/output/position = Vector2( 840, 100 )
+node_connections = [ "idle_caminar_correr", 0, "Animation 4", "idle_caminar_correr", 1, "Animation", "idle_caminar_correr", 2, "VelCorrer", "VelCorrer", 0, "Animation 2", "output", 0, "idle_caminar_correr" ]
 
 [node name="Godotin" type="KinematicBody"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
@@ -1811,7 +1844,7 @@ bones/26/bound_children = [  ]
 [node name="Robot" type="MeshInstance" parent="Armadura/Skeleton"]
 mesh = SubResource( 4 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Animaciones" type="AnimationPlayer" parent="."]
 anims/default = SubResource( 5 )
 anims/falling-cycle = SubResource( 6 )
 anims/idle = SubResource( 7 )
@@ -1823,12 +1856,19 @@ anims/walk-cycle = SubResource( 12 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 23 )
-anim_player = NodePath("../AnimationPlayer")
+anim_player = NodePath("../Animaciones")
 parameters/air_dir/blend_amount = 0.0
 parameters/gun/blend_amount = 0
 parameters/scale/scale = 1.5
 parameters/state/current = 0
 parameters/walk/blend_amount = 0.0
+
+[node name="ArbolDeAnimacion" type="AnimationTree" parent="."]
+tree_root = SubResource( 26 )
+anim_player = NodePath("../Animaciones")
+active = true
+parameters/VelCorrer/scale = 1.0
+parameters/idle_caminar_correr/blend_amount = 0.96
 
 [node name="BrazoCamara" type="SpringArm" parent="."]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
