@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "AnimationTree",
+"class": "ArbolAnimacionPlayer",
+"language": "GDScript",
+"path": "res://juego/player/ArbolDeAnimacion.gd"
+}, {
 "base": "KinematicBody",
 "class": "Godotin",
 "language": "GDScript",
 "path": "res://juego/player/Godotin.gd"
 } ]
 _global_script_class_icons={
+"ArbolAnimacionPlayer": "",
 "Godotin": ""
 }
 
@@ -58,6 +64,11 @@ mov_adelante={
 mov_atras={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+}
+disparar={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":77,"unicode":0,"echo":false,"script":null)
  ]
 }
 

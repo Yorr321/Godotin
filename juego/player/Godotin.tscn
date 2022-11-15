@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://juego/player/BrazoCamara.gd" type="Script" id=1]
 [ext_resource path="res://juego/player/Godotin.gd" type="Script" id=2]
+[ext_resource path="res://juego/player/ArbolDeAnimacion.gd" type="Script" id=3]
 
 [sub_resource type="CylinderShape" id=24]
 height = 2.08814
@@ -1597,93 +1598,60 @@ tracks/26/imported = false
 tracks/26/enabled = true
 tracks/26/keys = PoolRealArray( 0, 1, 5.17831e-08, 0.00292331, 0.204329, 3.25963e-09, -2.17324e-11, 3.00563e-10, 1, 1, 1, 1, 1.25, 1, 5.17831e-08, 0.00292331, 0.204329, 3.25963e-09, -2.17324e-11, 3.00563e-10, 1, 1, 1, 1 )
 
-[sub_resource type="AnimationNodeAnimation" id=13]
-animation = "walk-cycle"
+[sub_resource type="AnimationNodeAnimation" id=27]
+animation = "idle"
 
-[sub_resource type="AnimationNodeAnimation" id=14]
+[sub_resource type="AnimationNodeAnimation" id=31]
 animation = "jump-up-cycle"
 
-[sub_resource type="AnimationNodeAnimation" id=15]
+[sub_resource type="AnimationNodeAnimation" id=32]
 animation = "falling-cycle"
 
-[sub_resource type="AnimationNodeAnimation" id=16]
-animation = "shooting_standing"
-
-[sub_resource type="AnimationNodeAnimation" id=17]
-animation = "idle"
-
-[sub_resource type="AnimationNodeBlend2" id=18]
-
-[sub_resource type="AnimationNodeBlend2" id=19]
-
-[sub_resource type="AnimationNodeTimeScale" id=20]
-
-[sub_resource type="AnimationNodeTransition" id=21]
-input_count = 2
-input_0/name = "on floor"
-input_0/auto_advance = false
-input_1/name = "in air"
-input_1/auto_advance = false
-
-[sub_resource type="AnimationNodeBlend2" id=22]
-
-[sub_resource type="AnimationNodeBlendTree" id=23]
-graph_offset = Vector2( -529.385, -200.775 )
-nodes/Animation/node = SubResource( 17 )
-nodes/Animation/position = Vector2( -260, -280 )
-"nodes/Animation 2/node" = SubResource( 13 )
-"nodes/Animation 2/position" = Vector2( -260, -160 )
-"nodes/Animation 3/node" = SubResource( 14 )
-"nodes/Animation 3/position" = Vector2( -260, -40 )
-"nodes/Animation 4/node" = SubResource( 15 )
-"nodes/Animation 4/position" = Vector2( -260, 80 )
-"nodes/Animation 5/node" = SubResource( 16 )
-"nodes/Animation 5/position" = Vector2( -260, 200 )
-nodes/air_dir/node = SubResource( 18 )
-nodes/air_dir/position = Vector2( 140, 20 )
-nodes/gun/node = SubResource( 19 )
-nodes/gun/position = Vector2( 680, 140 )
-nodes/output/position = Vector2( 880, 140 )
-nodes/scale/node = SubResource( 20 )
-nodes/scale/position = Vector2( 180, -120 )
-nodes/state/node = SubResource( 21 )
-nodes/state/position = Vector2( 440, 0 )
-nodes/walk/node = SubResource( 22 )
-nodes/walk/position = Vector2( -40, -240 )
-node_connections = [ "scale", 0, "walk", "state", 0, "scale", "state", 1, "air_dir", "output", 0, "gun", "air_dir", 0, "Animation 3", "air_dir", 1, "Animation 4", "gun", 0, "state", "gun", 1, "Animation 5", "walk", 0, "Animation", "walk", 1, "Animation 2" ]
-
-[sub_resource type="AnimationNodeAnimation" id=27]
-animation = "run-cycle"
-
-[sub_resource type="AnimationNodeAnimation" id=28]
+[sub_resource type="AnimationNodeAnimation" id=35]
 animation = "shooting"
 
-[sub_resource type="AnimationNodeAnimation" id=29]
-animation = "walk-cycle"
+[sub_resource type="AnimationNodeAnimation" id=28]
+animation = "run-cycle"
 
-[sub_resource type="AnimationNodeAnimation" id=25]
-animation = "idle"
+[sub_resource type="AnimationNodeBlend2" id=36]
+
+[sub_resource type="AnimationNodeBlend2" id=29]
+
+[sub_resource type="AnimationNodeBlend2" id=33]
 
 [sub_resource type="AnimationNodeTimeScale" id=30]
 
-[sub_resource type="AnimationNodeBlend3" id=31]
+[sub_resource type="AnimationNodeTransition" id=34]
+input_count = 2
+input_0/name = "en_suelo"
+input_0/auto_advance = false
+input_1/name = "en_aire"
+input_1/auto_advance = false
 
 [sub_resource type="AnimationNodeBlendTree" id=26]
-graph_offset = Vector2( -303.864, -40.5098 )
-nodes/Animation/node = SubResource( 25 )
-nodes/Animation/position = Vector2( 260, 120 )
+graph_offset = Vector2( -72.6948, -0.404251 )
+nodes/Animation/node = SubResource( 28 )
+nodes/Animation/position = Vector2( 160, 160 )
 "nodes/Animation 2/node" = SubResource( 27 )
-"nodes/Animation 2/position" = Vector2( 40, 240 )
-"nodes/Animation 3/node" = SubResource( 28 )
-"nodes/Animation 3/position" = Vector2( -260, 260 )
-"nodes/Animation 4/node" = SubResource( 29 )
-"nodes/Animation 4/position" = Vector2( 240, 0 )
-nodes/VelCorrer/node = SubResource( 30 )
-nodes/VelCorrer/position = Vector2( 260, 240 )
-nodes/idle_caminar_correr/node = SubResource( 31 )
-nodes/idle_caminar_correr/position = Vector2( 540, 100 )
-nodes/output/position = Vector2( 840, 100 )
-node_connections = [ "idle_caminar_correr", 0, "Animation 4", "idle_caminar_correr", 1, "Animation", "idle_caminar_correr", 2, "VelCorrer", "VelCorrer", 0, "Animation 2", "output", 0, "idle_caminar_correr" ]
+"nodes/Animation 2/position" = Vector2( 360, 0 )
+"nodes/Animation 3/node" = SubResource( 31 )
+"nodes/Animation 3/position" = Vector2( 340, 280 )
+"nodes/Animation 4/node" = SubResource( 32 )
+"nodes/Animation 4/position" = Vector2( 360, 400 )
+"nodes/Animation 5/node" = SubResource( 35 )
+"nodes/Animation 5/position" = Vector2( 940, 300 )
+nodes/MezclaDisparar/node = SubResource( 36 )
+nodes/MezclaDisparar/position = Vector2( 1180, 180 )
+nodes/MezclaIdleCaminar/node = SubResource( 29 )
+nodes/MezclaIdleCaminar/position = Vector2( 620, 60 )
+nodes/MezclaSaltarCaeer/node = SubResource( 33 )
+nodes/MezclaSaltarCaeer/position = Vector2( 620, 260 )
+nodes/TimeScale/node = SubResource( 30 )
+nodes/TimeScale/position = Vector2( 380, 140 )
+nodes/TransicionSueloAire/node = SubResource( 34 )
+nodes/TransicionSueloAire/position = Vector2( 880, 140 )
+nodes/output/position = Vector2( 1460, 180 )
+node_connections = [ "output", 0, "MezclaDisparar", "TimeScale", 0, "Animation", "TransicionSueloAire", 0, "MezclaIdleCaminar", "TransicionSueloAire", 1, "MezclaSaltarCaeer", "MezclaSaltarCaeer", 0, "Animation 3", "MezclaSaltarCaeer", 1, "Animation 4", "MezclaDisparar", 0, "TransicionSueloAire", "MezclaDisparar", 1, "Animation 5", "MezclaIdleCaminar", 0, "Animation 2", "MezclaIdleCaminar", 1, "TimeScale" ]
 
 [node name="Godotin" type="KinematicBody"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
@@ -1854,21 +1822,16 @@ anims/shooting = SubResource( 10 )
 anims/shooting_standing = SubResource( 11 )
 anims/walk-cycle = SubResource( 12 )
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 23 )
-anim_player = NodePath("../Animaciones")
-parameters/air_dir/blend_amount = 0.0
-parameters/gun/blend_amount = 0
-parameters/scale/scale = 1.5
-parameters/state/current = 0
-parameters/walk/blend_amount = 0.0
-
 [node name="ArbolDeAnimacion" type="AnimationTree" parent="."]
 tree_root = SubResource( 26 )
 anim_player = NodePath("../Animaciones")
 active = true
-parameters/VelCorrer/scale = 1.0
-parameters/idle_caminar_correr/blend_amount = 0.96
+parameters/MezclaDisparar/blend_amount = 1.0
+parameters/MezclaIdleCaminar/blend_amount = 1.0
+parameters/MezclaSaltarCaeer/blend_amount = 0
+parameters/TimeScale/scale = 1.0
+parameters/TransicionSueloAire/current = 0
+script = ExtResource( 3 )
 
 [node name="BrazoCamara" type="SpringArm" parent="."]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
@@ -1882,3 +1845,10 @@ camara_y_invertida = true
 [node name="CamaraPlayer" type="Camera" parent="BrazoCamara"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 4.5027 )
 current = true
+
+[node name="Linterna" type="SpotLight" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -0.262908, 1.10394, 1.17723 )
+light_color = Color( 0.937255, 0.945098, 0.0509804, 1 )
+light_energy = 0.0
+spot_range = 7.205
+spot_angle = 12.9
