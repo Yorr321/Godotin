@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Godotin",
 "language": "GDScript",
 "path": "res://juego/player/Godotin.gd"
+}, {
+"base": "Area",
+"class": "PortalNivel",
+"language": "GDScript",
+"path": "res://Portal.gd"
 } ]
 _global_script_class_icons={
 "ArbolAnimacionPlayer": "",
-"Godotin": ""
+"Godotin": "",
+"PortalNivel": ""
 }
 
 [application]
@@ -30,12 +36,19 @@ config/name="Godotin"
 run/main_scene="res://juego/Niveles/NivelTest.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Eventos="*res://juego/Autoloads/Eventos.gd"
+DatosJuego="*res://juego/Autoloads/DatosJuego.gd"
+
 [display]
 
 window/size/width=960
 window/size/height=640
 window/size/resizable=false
 window/size/always_on_top=true
+window/size/test_width=520
+window/size/test_height=680
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 

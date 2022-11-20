@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Op2.mp3-8e37563543fe81034c2f5498a07633be.mp3str"
+
+[deps]
+
+source_file="res://juego/Recursos/SFX/Op2.mp3"
+dest_files=[ "res://.import/Op2.mp3-8e37563543fe81034c2f5498a07633be.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

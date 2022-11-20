@@ -1614,6 +1614,8 @@ animation = "shooting"
 animation = "run-cycle"
 
 [sub_resource type="AnimationNodeBlend2" id=36]
+filter_enabled = true
+filters = [ "Armadura/Skeleton:head", "Armadura/Skeleton:headtracker", "Armadura/Skeleton:l-ARMCONTROL", "Armadura/Skeleton:l-ARMORIENT", "Armadura/Skeleton:l-arm", "Armadura/Skeleton:l-forearm", "Armadura/Skeleton:neck", "Armadura/Skeleton:r-ARMCONTROL", "Armadura/Skeleton:r-ARMORIENT", "Armadura/Skeleton:r-arm", "Armadura/Skeleton:r-forearm", "Armadura/Skeleton:vent" ]
 
 [sub_resource type="AnimationNodeBlend2" id=29]
 
@@ -1629,7 +1631,7 @@ input_1/name = "en_aire"
 input_1/auto_advance = false
 
 [sub_resource type="AnimationNodeBlendTree" id=26]
-graph_offset = Vector2( -72.6948, -0.404251 )
+graph_offset = Vector2( 472, 133 )
 nodes/Animation/node = SubResource( 28 )
 nodes/Animation/position = Vector2( 160, 160 )
 "nodes/Animation 2/node" = SubResource( 27 )
@@ -1651,7 +1653,7 @@ nodes/TimeScale/position = Vector2( 380, 140 )
 nodes/TransicionSueloAire/node = SubResource( 34 )
 nodes/TransicionSueloAire/position = Vector2( 880, 140 )
 nodes/output/position = Vector2( 1460, 180 )
-node_connections = [ "output", 0, "MezclaDisparar", "TimeScale", 0, "Animation", "TransicionSueloAire", 0, "MezclaIdleCaminar", "TransicionSueloAire", 1, "MezclaSaltarCaeer", "MezclaSaltarCaeer", 0, "Animation 3", "MezclaSaltarCaeer", 1, "Animation 4", "MezclaDisparar", 0, "TransicionSueloAire", "MezclaDisparar", 1, "Animation 5", "MezclaIdleCaminar", 0, "Animation 2", "MezclaIdleCaminar", 1, "TimeScale" ]
+node_connections = [ "output", 0, "MezclaDisparar", "TimeScale", 0, "Animation", "MezclaIdleCaminar", 0, "Animation 2", "MezclaIdleCaminar", 1, "TimeScale", "MezclaSaltarCaeer", 0, "Animation 3", "MezclaSaltarCaeer", 1, "Animation 4", "TransicionSueloAire", 0, "MezclaIdleCaminar", "TransicionSueloAire", 1, "MezclaSaltarCaeer", "MezclaDisparar", 0, "TransicionSueloAire", "MezclaDisparar", 1, "Animation 5" ]
 
 [node name="Godotin" type="KinematicBody"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
@@ -1826,7 +1828,7 @@ anims/walk-cycle = SubResource( 12 )
 tree_root = SubResource( 26 )
 anim_player = NodePath("../Animaciones")
 active = true
-parameters/MezclaDisparar/blend_amount = 1.0
+parameters/MezclaDisparar/blend_amount = 0.0
 parameters/MezclaIdleCaminar/blend_amount = 1.0
 parameters/MezclaSaltarCaeer/blend_amount = 0
 parameters/TimeScale/scale = 1.0

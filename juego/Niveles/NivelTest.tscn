@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://juego/Bloques/ColumnaBloques.tscn" type="PackedScene" id=1]
 [ext_resource path="res://juego/Bloques/BloqueLargo.tscn" type="PackedScene" id=2]
@@ -7,6 +7,11 @@
 [ext_resource path="res://juego/Bloques/BloquePunta.tscn" type="PackedScene" id=5]
 [ext_resource path="res://juego/Bloques/BloquePendiente.tscn" type="PackedScene" id=6]
 [ext_resource path="res://juego/Bloques/BloquePendienteMedia.tscn" type="PackedScene" id=7]
+[ext_resource path="res://juego/Items/MonedaDorada.tscn" type="PackedScene" id=8]
+[ext_resource path="res://juego/Objeto/Danio/Sierra.tscn" type="PackedScene" id=9]
+[ext_resource path="res://juego/Interfaz/HUD.tscn" type="PackedScene" id=10]
+[ext_resource path="res://juego/Portal/Portal.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Nivel.gd" type="Script" id=12]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 50, 50 )
@@ -18,8 +23,12 @@ albedo_color = Color( 0.0862745, 0.270588, 0.258824, 1 )
 extents = Vector3( 25, 0.001, 25 )
 
 [node name="NivelTest" type="Node"]
+script = ExtResource( 12 )
+numero_nivel = 1
+proximo_nivel = "res://juego/Niveles/NivelTest2.tscn"
 
 [node name="Suelo" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.1, 0.1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Suelo"]
 mesh = SubResource( 1 )
@@ -1272,3 +1281,29 @@ transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -5, 0, 0 
 
 [node name="BloquePendienteMedia" parent="Plataformas" instance=ExtResource( 7 )]
 transform = Transform( -0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 1, 0, 2 )
+
+[node name="ContenedorMonedas" type="Node" parent="."]
+
+[node name="MonedaDorada" parent="ContenedorMonedas" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 9.7 )
+
+[node name="MonedaDorada2" parent="ContenedorMonedas" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 10.7 )
+
+[node name="MonedaDorada3" parent="ContenedorMonedas" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 10.2 )
+
+[node name="Sierra" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.6, 18.8 )
+
+[node name="Sierra2" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8, 0.6, 18.8 )
+
+[node name="Sierra3" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9, 0.6, 18.8 )
+
+[node name="HUD" parent="." instance=ExtResource( 10 )]
+
+[node name="Portal" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1.38564, 0, -0.8, 0, 1.6, 0, 0.8, 0, 1.38564, 3.1, 0, -9 )
+proximo_nivel = "res://juego/Niveles/MenuIntermedio.tscn"

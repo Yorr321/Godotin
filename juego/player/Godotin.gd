@@ -110,4 +110,8 @@ func tomar_direccion() -> Vector3:
 	
 	return direccion
 
+func respawn() -> void:
+	DatosJuego.restar_vidas()
+	get_tree().reload_current_scene()
+
 

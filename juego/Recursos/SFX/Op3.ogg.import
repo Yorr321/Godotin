@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Op3.ogg-59b3fb74185752eaba8b25c81fb3e7e3.oggstr"
+
+[deps]
+
+source_file="res://juego/Recursos/SFX/Op3.ogg"
+dest_files=[ "res://.import/Op3.ogg-59b3fb74185752eaba8b25c81fb3e7e3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
